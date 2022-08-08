@@ -1,0 +1,12 @@
+  apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: mosquitto-log
+    namespace: solarbita
+  spec:
+    capacity:
+      storage: 25Mi
+    accessModes:
+      - ReadWriteOnce
+    nfs:
+      path: /mnt/fileserv/kubernetes/mosquitto/log

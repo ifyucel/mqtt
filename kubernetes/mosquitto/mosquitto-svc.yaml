@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mosquitto
+  namespace: solarbita
+  labels:
+    app: mosquitto
+    kubernetes.io/name: "mosquitto"
+spec:
+  selector:
+    app: mosquitto
+  ports:
+  - name: mosquitto
+    port: 17500
+  - name: mosquitto-web
+    port: 80
+    targetPort: 9001

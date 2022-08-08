@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mosquitto
+  namespace: solarbita
+  annotations:
+    kubernetes.io/tls-acme: "true"
+spec:
+  tls:
+  - hosts:
+    - mqtt.solarbita.com
+    secretName: mosquitto-cert
+  rules:
+  - host: mqtt.solarbita.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mosquitto
+          servicePort: 80
